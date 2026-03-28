@@ -27,6 +27,8 @@ export class AuthController {
             return res.status(404).json({error:"Usuario não encontrado"})
         }
 
+        console.log("user",user)
+        console.log(password , user.password );
         const issPasswordValid = await bcrypt.compare(password ?? "", user.password ?? "");
 
         if(!issPasswordValid){
